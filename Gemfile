@@ -6,9 +6,11 @@ ruby '2.4.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 
-###
+### lishouchao
 gem 'bootstrap-sass',    '3.3.6'
 gem 'bcrypt', '3.1.11'
+gem 'jquery-rails', '~>4.3.3'
+
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
