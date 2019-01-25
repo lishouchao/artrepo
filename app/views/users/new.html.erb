@@ -1,18 +1,8 @@
 <% provide(:title, 'Sign up') %>
+<% provide(:button_text, 'Create my account') %>
 <h1>Sign up</h1>
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
-		<%= form_for(@user, url: signup_path) do |f| %>
-			<%= render 'shared/error_messages' %>
-			<%= f.label :姓名 %>
-			<%= f.text_field :name %>
-			<%= f.label :电子邮箱 %>
-			<%= f.email_field :email %>
-			<%= f.label :密码 %>
-			<%= f.password_field :password %>
-			<%= f.label :password_confirmation, "请再输入一次密码" %>
-			<%= f.password_field :password_confirmation %>
-			<%= f.submit "创建我的账户", class: "btn btn-primary" %>
-		<% end %>
+		<%= render 'form' %>
 	</div>
 </div>

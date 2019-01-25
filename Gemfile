@@ -9,6 +9,9 @@ gem 'rails', '~> 5.2.2'
 ### lishouchao
 gem 'bootstrap-sass',    '3.3.6'
 gem 'bcrypt', '3.1.11'
+gem 'faker'
+gem 'nokogiri'
+gem 'will_paginate'
 gem 'jquery-rails', '~>4.3.3'
 
 
