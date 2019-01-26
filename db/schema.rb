@@ -10,13 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_25_144718) do
+ActiveRecord::Schema.define(version: 2019_01_26_143826) do
+
+  create_table "artists", force: :cascade do |t|
+    t.string "name"
+    t.text "introduction"
+    t.date "birthyear"
+    t.string "avatar"
+    t.string "style"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "created_at"], name: "index_artists_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_artists_on_user_id"
+  end
 
   create_table "arts", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "artworks", force: :cascade do |t|
+    t.string "name"
+    t.date "creation_time"
+    t.string "material"
+    t.string "width"
+    t.string "height"
+    t.string "depth"
+    t.text "description"
+    t.integer "artist_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id", "user_id", "created_at"], name: "index_artworks_on_artist_id_and_user_id_and_created_at"
+    t.index ["artist_id"], name: "index_artworks_on_artist_id"
+    t.index ["user_id"], name: "index_artworks_on_user_id"
+  end
+
+  create_table "microposts", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_microposts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

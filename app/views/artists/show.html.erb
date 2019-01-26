@@ -1,0 +1,21 @@
+<% provide(:title, @artist.name) %>
+<div class="row">
+	<aside class="col-md-4">
+		<section class="user_info">
+		<h1>
+			
+			<%= @artist.name %>
+		</h1>
+		</section>
+	</aside>
+	<div class="col-md-8">
+		<% if @artist.artworks.any? %>
+		<h3>Artworks (<%= @artist.artworks.count %>)</h3>
+		<ol class="microposts">
+		<%= render @artworks %>
+		</ol>
+		<%= will_paginate @arworks %>
+		<% end %>
+	</div>
+
+</div>
