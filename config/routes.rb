@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'articles/new'
   get 'sessions/new'
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
@@ -12,6 +13,10 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  resources :articles do
+    resources :comments
+  end
+  #resources :comments
   resources :arts
   resources :users
   resources :microposts,only: [:create, :destroy]

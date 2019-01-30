@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_26_143826) do
+ActiveRecord::Schema.define(version: 2019_01_30_152027) do
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.string "can_comment"
+    t.string "bool"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
@@ -47,6 +56,17 @@ ActiveRecord::Schema.define(version: 2019_01_26_143826) do
     t.index ["artist_id", "user_id", "created_at"], name: "index_artworks_on_artist_id_and_user_id_and_created_at"
     t.index ["artist_id"], name: "index_artworks_on_artist_id"
     t.index ["user_id"], name: "index_artworks_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.integer "flag"
+    t.integer "article_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_comments_on_article_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "microposts", force: :cascade do |t|

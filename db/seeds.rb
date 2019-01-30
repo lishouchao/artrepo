@@ -36,3 +36,5 @@ name = Faker::Name.name
 users.each { |user| user.artists.create!(name: name) }
 end
 
+
+
