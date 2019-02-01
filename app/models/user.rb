@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :artists,    dependent: :destroy
   has_many :artworks,   dependent: :destroy
   has_many :comments,   dependent: :destroy
+  has_many :articles,   dependent: :destroy
 
   attr_accessor :remember_token
   before_save {self.email = email.downcase }

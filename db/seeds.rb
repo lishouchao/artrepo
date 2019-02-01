@@ -36,5 +36,9 @@ name = Faker::Name.name
 users.each { |user| user.artists.create!(name: name) }
 end
 
-
+#10.times do
+#title = Faker::Name.name
+#body = Faker::Lorem.sentence(5)
+#users.each { |user| user.articles.create!(title: title, body: body) }
+#end
 
